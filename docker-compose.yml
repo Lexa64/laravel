@@ -30,8 +30,6 @@ services:
         environment:
             MYSQL_DATABASE: laravel
             MYSQL_ROOT_PASSWORD: root
-            SERVICE_TAG: dev
-            SERVICE_NAME: mysql
         networks:
             - laravel
     php:
@@ -46,5 +44,15 @@ services:
             - ./php/conf.d/error_reporting.ini:/usr/local/etc/php/conf.d/error_reporting.ini
         ports:
             - "${PHP_HOST_PORT}:${PHP_DOCKER_CONTAINER_PORT}"
+        networks:
+            - laravel
+    phpmyadmin:
+        image: phpmyadmin
+        restart: always
+        ports:
+            - "${PHPMYADMIN_HOST_PORT}:${PHPMYADMIN_DOCKER_CONTAINER_PORT}"
+        environment:
+            PMA_HOST: "${DB_HOST}"
+            PMA_PORT: "${MYSQL_DOCKER_CONTAINER_PORT}"
         networks:
             - laravel
