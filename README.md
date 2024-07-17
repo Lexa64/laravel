@@ -20,7 +20,7 @@
    `php artisan key:generate`  
    `php artisan migrate`  
 
-5. Перейти на `http://localhost/`  
+5. Перейти на `http://localhost:8001/`  
 
 В случае возникновения ошибки, связанной с правами, попробовать следующую команду:  
 `chmod -R 777 storage`  
