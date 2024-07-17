@@ -27,6 +27,7 @@ services:
             - ./mysql:/var/lib/mysql
         ports:
             - "${MYSQL_HOST_PORT}:${MYSQL_DOCKER_CONTAINER_PORT}"
+            - "${MYSQL_VITE_PORT}:${MYSQL_VITE_DOCKER_CONTAINER_PORT}"
         environment:
             MYSQL_DATABASE: laravel
             MYSQL_ROOT_PASSWORD: root
