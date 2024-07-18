@@ -4,7 +4,7 @@ WORKDIR /var/www
 
 RUN apt -y update
 
-RUN apt install -y nodejs npm libzip-dev --no-install-recommends \
+RUN apt install -y nodejs npm libzip-dev git --no-install-recommends \
     && pecl install xdebug \
     && docker-php-ext-install pdo pdo_mysql zip \
     && docker-php-ext-enable xdebug
